@@ -823,18 +823,21 @@ sub set_defaults {
 # Borrowed from: https://www.perturb.org/display/1167_Perl_ANSI_colors.html
 # String format: '115', '165_bold', '10_on_140', 'reset', 'on_173', 'red', 'white_on_blue'
 sub color {
-	my $str = shift();
+	my ($str, $txt) = @_;
+
+	# If we're NOT connected to a an interactive terminal don't do color
+	#if (-t STDOUT == 0) { return ''; }
 
 	# No string sent in, so we just reset
 	if (!length($str) || $str eq 'reset') { return "\e[0m"; }
 
 	# Some predefined colors
-	my %color_map = qw(red 160 blue 21 green 34 yellow 226 orange 214 purple 93 white 15 black 0);
+	my %color_map = qw(red 160 blue 27 green 34 yellow 226 orange 214 purple 93 white 15 black 0);
 	$str =~ s|([A-Za-z]+)|$color_map{$1} // $1|eg;
 
 	# Get foreground/background and any commands
-	my ($fc,$cmd) = $str =~ /(\d+)?_?(\w+)?/g;
-	my ($bc)      = $str =~ /on_?(\d+)/g;
+	my ($fc,$cmd) = $str =~ /^(\d{1,3})?_?(\w+)?$/g;
+	my ($bc)      = $str =~ /on_(\d{1,3})$/g;
 
 	# Some predefined commands
 	my %cmd_map = qw(bold 1 italic 3 underline 4 blink 5 inverse 7);
@@ -844,6 +847,7 @@ sub color {
 	if ($cmd_num)     { $ret .= "\e[${cmd_num}m"; }
 	if (defined($fc)) { $ret .= "\e[38;5;${fc}m"; }
 	if (defined($bc)) { $ret .= "\e[48;5;${bc}m"; }
+	if ($txt)         { $ret .= $txt . "\e[0m";   }
 
 	return $ret;
 }
