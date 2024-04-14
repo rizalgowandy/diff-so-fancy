@@ -974,6 +974,7 @@ sub set_ansi_color {
 	}
 }
 
+# Is the string 100% numeric
 sub is_numeric {
 	my $s = shift();
 
@@ -984,6 +985,7 @@ sub is_numeric {
 	return 0;
 }
 
+# Does the string start with ANSI
 sub starts_with_ansi {
 	my $str = shift();
 
@@ -1054,6 +1056,7 @@ sub show_debug_info {
 	print "Operating System: $^O\n";
 }
 
+# Boolean to yes/no string
 sub yes_no {
 	my $val = shift();
 
@@ -1073,6 +1076,7 @@ sub init_diff_highlight_colors {
 	$DiffHighlight::OLD_HIGHLIGHT[1] = git_ansi_color(git_config('color.diff-highlight.oldhighlight')) || $DiffHighlight::OLD_HIGHLIGHT[1];
 }
 
+# Write a line to the debug log which is opened on the fly as-needed
 sub debug_log {
 	my $log_line = shift();
 	my $file     = "/tmp/diff-so-fancy.debug.log";
@@ -1088,12 +1092,16 @@ sub debug_log {
 	return 1;
 }
 
+# Count the number of context lines in the diff
 sub calculate_context_lines {
 	my @lines     = @_;
 	my $count     = 0;
 	my $hunk_line = 0;
 
+	# Count the number of lines between the hunk line and the
+	# first + or - line
 	foreach my $line (@lines) {
+		# Look for the hunk line before we start
 		if ($line =~ /^${ansi_color_regex}(@@@* .+? @@@*)(.*)/) {
 			$hunk_line = $count;
 		} elsif ($hunk_line && $line =~ /^${ansi_color_regex}[+-]/) {
