@@ -135,6 +135,7 @@ Pull requests are quite welcome, and should target the [`next` branch](https://g
 ## Alternatives
 
 * [Delta](https://github.com/dandavison/delta)
+* [Lazygit](https://github.com/jesseduffield/lazygit) with diff-so-fancy [integration](https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md#diff-so-fancy)
 
 ## License
 
