@@ -10,7 +10,7 @@ Vanilla `git diff` vs `git` and `diff-so-fancy`
 
 ## Install
 
-Installation is as simple as cloning this repo and then putting the `diff-so-fancy` script in to your `$PATH`. The `lib/` directory will need to be kept relative to the core script.
+Simply copy the `diff-so-fancy` script from the latest release into your `$PATH` and you're done. Alternately to test development features you can clone this repo and then put the `diff-so-fancy` script (symlink will work) into your `$PATH`. The `lib/` directory will need to be kept relative to the core script.
 
 If you are using a ZSH framework like [zgenom](https://github.com/jandamm/zgenom) or [oh-my-zsh](https://ohmyz.sh), refer to [Zsh plugin support for diff-so-fancy](pro-tips.md) for detailed installation instructions.
 
@@ -109,7 +109,7 @@ git config --bool --global diff-so-fancy.useUnicodeRuler false
 By default, the separator for the file header spans the full width of the terminal. Use this setting to set the width of the file header manually.
 
 ```shell
-git config --global diff-so-fancy.rulerWidth 47    # git log's commit header width
+git config --global diff-so-fancy.rulerWidth 80
 ```
 
 ## The diff-so-fancy team
