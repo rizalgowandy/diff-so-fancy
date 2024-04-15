@@ -134,7 +134,7 @@ Pull requests are quite welcome, and should target the [`next` branch](https://g
 
 ## Alternatives
 
-* https://github.com/dandavison/delta
+* [Delta](https://github.com/dandavison/delta)
 
 ## License
 
