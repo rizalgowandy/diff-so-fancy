@@ -47,6 +47,10 @@ my $columns_to_remove = 0;
 my $is_mercurial      = 0;
 my $color_forced      = 0; # Has the color been forced on/off
 
+if ($args->{rulerWidth}) {
+	$ruler_width = int($args->{rulerWidth});
+}
+
 # We try and be smart about whether we need to do line coloring, but
 # this is an option to force it on/off
 if ($args->{color_on}) {
