@@ -62,7 +62,7 @@ zinit load so-fancy/diff-so-fancy
 zplug "so-fancy/diff-so-fancy", as:command, use:bin/git-dsf
 ```
 
-# zgenom and others
+### zgenom and others
 
 ```sh
 zgenom load so-fancy/diff-so-fancy

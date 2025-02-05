@@ -75,3 +75,9 @@ teardown_file() {
   run printf "%s" "$output"
   assert_line --index 3 --partial  "@[0m[93m height"
 }
+
+@test "ANSI Reset without the zero (#469)" {
+  output=$( load_fixture "ansi_reset_no_number" | $diff_so_fancy )
+  run printf "%s" "$output"
+  assert_line --index 5 --partial  "History"
+}

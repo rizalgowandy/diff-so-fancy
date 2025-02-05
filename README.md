@@ -10,13 +10,14 @@ Vanilla `git diff` vs `git` and `diff-so-fancy`
 
 ## Install
 
-Installation is as simple as cloning this repo and then putting the `diff-so-fancy` script in to your `$PATH`. The `lib/` directory will need to be kept relative to the core script.
+Simply copy the `diff-so-fancy` script from the latest release into your `$PATH` and you're done. Alternately to test development features you can clone this repo and then put the `diff-so-fancy` script (symlink will work) into your `$PATH`. The `lib/` directory will need to be kept relative to the core script.
 
-If you are using a ZSH framework like [zgenom](https://github.com/jandamm/zgenom) or [oh-my-zsh](https://ohmyz.sh), refer to [ZSH framework install](zsh-frameworks.md) for detailed installation instructions.
+If you are using a ZSH framework like [zgenom](https://github.com/jandamm/zgenom) or [oh-my-zsh](https://ohmyz.sh), refer to [Zsh plugin support for diff-so-fancy](pro-tips.md) for detailed installation instructions.
 
 `diff-so-fancy` is also available from the [NPM registry](https://www.npmjs.com/package/diff-so-fancy), [brew](https://formulae.brew.sh/formula/diff-so-fancy), as a package on [Nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/version-management/diff-so-fancy/default.nix), [Fedora](https://packages.fedoraproject.org/pkgs/diff-so-fancy/diff-so-fancy/), in the [Arch extra repo](https://archlinux.org/packages/extra/any/diff-so-fancy/), and as [ppa:aos for Debian/Ubuntu Linux](https://github.com/aos/dsf-debian).
 
 Issues relating to packaging ('installation does not work', 'version is out of date', etc.) should be directed to those packages' own repositories/issue trackers where applicable.
+Issues relating to packaging ("installation does not work", "version is out of date", etc.) should be directed to those packages' repositories/issue trackers where applicable.
 
 **Note:** Windows users may need to install [MinGW](https://sourceforge.net/projects/mingw/files/) or the [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
@@ -108,7 +109,7 @@ git config --bool --global diff-so-fancy.useUnicodeRuler false
 By default, the separator for the file header spans the full width of the terminal. Use this setting to set the width of the file header manually.
 
 ```shell
-git config --global diff-so-fancy.rulerWidth 47    # git log's commit header width
+git config --global diff-so-fancy.rulerWidth 80
 ```
 
 ## The diff-so-fancy team
@@ -134,7 +135,8 @@ Pull requests are quite welcome, and should target the [`next` branch](https://g
 
 ## Alternatives
 
-* https://github.com/dandavison/delta
+* [Delta](https://github.com/dandavison/delta)
+* [Lazygit](https://github.com/jesseduffield/lazygit) with diff-so-fancy [integration](https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md#diff-so-fancy)
 
 ## License
 
